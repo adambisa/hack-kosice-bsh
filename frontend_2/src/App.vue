@@ -1,11 +1,10 @@
 <template>
   <v-app>
     <v-main>
-      <HelloWorld />
+      <v-color-picker></v-color-picker>
+      <h1>debil</h1>
     </v-main>
   </v-app>
 </template>
 
-<script setup>
-  import HelloWorld from '@/components/HelloWorld.vue'
-</script>
+<script setup></script>
