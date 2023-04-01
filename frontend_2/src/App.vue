@@ -1,7 +1,8 @@
 <template>
-  <v-app>
+  <v-app theme="dark">
     <v-main>
-        <SelectMenu></SelectMenu>
+      <Header></Header>
+
       <ColorPicker></ColorPicker>
     </v-main>
   </v-app>
@@ -9,5 +10,5 @@
 
 <script setup>
 import ColorPicker from "@/components/ColorPicker.vue";
-import SelectMenu from "./components/SelectMenu.vue";
+import Header from "./components/Header.vue";
 </script>

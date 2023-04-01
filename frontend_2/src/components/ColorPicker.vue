@@ -1,21 +1,30 @@
 <template>
   <v-card
-    class="mx-auto"
+    class="mx-auto rounded-lg mt-16"
     max-width="340"
     theme="dark"
-    color="#2f3136"
+    color="grey-darken-4"
     elevation="12"
     variant="flat"
     title="Color Transition"
     subtitle="Challenge 1"
   >
-    <v-card-text class="mt-4">
+    <v-card-text>
       <span class="d-block text-body-2 mb-2">Initial Color:</span>
-      <v-color-picker hide-inputs v-model="color"></v-color-picker>
+      <v-color-picker
+        hide-inputs
+        color="#292929"
+        elevation="0"
+        v-model="color"
+      ></v-color-picker>
     </v-card-text>
 
     <v-card-actions>
-      <v-btn @click="logColor()" variant="text" color="red" size="large"
+      <v-btn
+        @click="logColor()"
+        variant="flat"
+        color="green-accent-3"
+        size="large"
         >Animate!</v-btn
       >
     </v-card-actions>
@@ -36,8 +45,4 @@ export default {
   },
 };
 </script>
-<style lang="scss" scoped>
-v-card {
-  padding: 1.2rem 3rem;
-}
-</style>
+<style lang="scss" scoped></style>
