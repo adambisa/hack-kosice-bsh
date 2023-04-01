@@ -1,0 +1,6 @@
+async function for front end
+
+input   -> some interface
+output  -> none
+
+body -> some fancy function to communicate with Vlado
