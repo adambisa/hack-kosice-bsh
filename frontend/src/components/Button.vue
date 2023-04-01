@@ -16,5 +16,6 @@ export default {
   border: none;
   color: $color--text-light;
   background-color: $color--primary-btn-background;
+  border-radius: $border-radius-small;
 }
 </style>

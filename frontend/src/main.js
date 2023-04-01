@@ -1,4 +1,7 @@
-import { createApp } from "vue";
-import App from "./App.vue";
+const { createApp } = Vue;
+const { createVuetify } = Vuetify;
 
-createApp(App).mount("#app");
+const vuetify = createVuetify();
+
+const app = createApp();
+app.use(Vuetify).mount("#app");
