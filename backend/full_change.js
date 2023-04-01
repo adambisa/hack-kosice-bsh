@@ -3,7 +3,7 @@ import { full_color } from "./full_color";
 import { shipper } from "./shipper";
 
 
-export async function full_change(length: number = 500, cooldown: number = 10) {
+export async function full_change(length = 500, cooldown = 10) {
     const sequence = new Array;
     color_sequence(length).forEach(
         ( elm ) => {
