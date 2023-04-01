@@ -1,17 +1,19 @@
 
+const hsl = (h, s, l) => {
+    s /= 100;
+    l /= 100;
+    const k = (n: number): number => (n + h / 30) % 12;
+    const a = s * Math.min(l, 1 - l);
+    const f = (n: number): number => l - a * Math.max(-1, Math.min(k(n) - 3, Math.min(9 - k(n), 1)));
+    return [255 * f(0), 255 * f(8), 255 * f(4)];
+};
+
 export function color_sequence(members: number): Array<[number, number, number, number]> {
-    const HEX = 16_777_216;
-    const multi = Math.trunc(HEX / members);
+    const multi = Math.trunc(360 / members);
     const sequence = new Array;
 
-    for (let i = 0; i < members; i++) {
-        let a = multi * i;
-        const color = [0, 0, 0, 0]
-        for (let j = 0; j < 3; j++) {
-                color[j] = a % 256
-                a = Math.trunc(a / 256)
-            }
-            sequence.push(color);
+    for (let i = 0; i < 360; i++) {
+        sequence.push(hsl(i * multi, 100, 50));
     }
 
     return sequence;    
