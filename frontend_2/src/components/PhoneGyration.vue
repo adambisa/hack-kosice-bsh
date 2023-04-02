@@ -50,12 +50,13 @@ export default {
       document.querySelector(".gyrationperc").style.color = "white";
     },
   },
+  created: function () {
+    window.addEventListener("deviceorientation", (e) => {
+      document.querySelector(".descofNum").innerHTML = "dement";
+      rotate = Math.round(e.beta * 100) / 100;
+    });
+  },
 };
-
-window.addEventListener("deviceorientation", (e) => {
-  document.querySelector(".descofNum").innerHTML = "dement";
-  rotate = Math.round(e.beta * 100) / 100;
-});
 </script>
 <style lang="scss" scoped>
 .descofNum {
