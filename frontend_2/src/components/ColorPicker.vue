@@ -3,7 +3,7 @@
     class="mx-auto rounded-lg mt-10"
     max-width="340"
     theme="dark"
-    color="grey-darken-4"
+    :color="isActive ? 'green-accent-3' : 'grey-darken-4'"
     elevation="12"
     variant="flat"
     title="Color Transition"
@@ -21,11 +21,12 @@
 
     <v-card-actions>
       <v-btn
-        @click="logColor()"
+        @click="activate()"
         variant="flat"
         color="green-accent-3"
         size="large"
-        >Activate!</v-btn
+        class="button"
+        >{{ isActive ? "Deactivate!" : "Activate!" }}</v-btn
       >
     </v-card-actions>
   </v-card>
@@ -38,11 +39,13 @@ export default {
   data() {
     return {
       color: { r: 255, g: 0, b: 255, a: 1 },
+      isActive: false,
     };
   },
   methods: {
-    logColor() {
-      full_change();
+    activate(e) {
+      this.isActive = !this.isActive;
+      // full_change();
     },
   },
 };
