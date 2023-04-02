@@ -34,6 +34,13 @@
 <script>
 // import { full_change } from "../../../backend/full_change";
 
+function handleOrientation(e, self) {
+  window.addEventListener("deviceorientation", (e) => {
+    document.querySelector(".descofNum").innerHTML = "dement";
+    self.rotation = Math.round(e.beta * 100) / 100;
+  });
+}
+
 export default {
   name: "PhoneGyro",
   data() {
@@ -44,8 +51,7 @@ export default {
   },
   mounted() {
     window.addEventListener("deviceorientation", (e) => {
-      document.querySelector(".descofNum").innerHTML = "dement";
-      this.rotation = Math.round(e.beta * 100) / 100;
+      handleOrientation(e, this);
     });
   },
   methods: {
