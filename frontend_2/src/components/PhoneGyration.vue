@@ -1,6 +1,6 @@
 <template>
   <v-card
-    class="mx-auto rounded-lg mt-10"
+    class="mx-auto rounded-lg mt-10 phone-gyro-card"
     max-width="340"
     theme="dark"
     :color="isActive ? 'green-accent-3' : 'grey-darken-4'"
@@ -8,6 +8,7 @@
     variant="flat"
     title="Phone Control"
     subtitle="Challenge 6"
+    :activity="isActive"
   >
     <v-card-text>
       <p class="mb-6">
@@ -34,31 +35,21 @@
 <script>
 // import { full_change } from "../../../backend/full_change";
 
-function handleOrientation(e, self) {
-  window.addEventListener("deviceorientation", (e) => {
-    document.querySelector(".descofNum").innerHTML = "dement";
-    self.rotation = Math.round(e.beta * 100) / 100;
-  });
-}
-
 export default {
   name: "PhoneGyro",
   data() {
     return {
       isActive: false,
-      rotation: 0,
     };
   },
-  mounted() {
-    window.addEventListener("deviceorientation", (e) => {
-      handleOrientation(e, this);
-    });
-  },
+  
   methods: {
     changeState() {
+      console.log('dement')
       this.isActive = !this.isActive;
       this.$emit("challenge-6-state", this.isActive);
       // full_change();
+      
       document.querySelector(".gyrationperc").style.color = "white";
     },
   },
