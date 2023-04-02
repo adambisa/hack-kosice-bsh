@@ -33,13 +33,13 @@
 
 <script>
 // import { full_change } from "../../../backend/full_change";
-let rotate = 0;
+
 export default {
   name: "PhoneGyro",
   data() {
     return {
       isActive: false,
-      rotation: rotate,
+      rotation: 0,
     };
   },
   methods: {
@@ -53,7 +53,7 @@ export default {
   created: function () {
     window.addEventListener("deviceorientation", (e) => {
       document.querySelector(".descofNum").innerHTML = "dement";
-      rotate = Math.round(e.beta * 100) / 100;
+      this.rotation = Math.round(e.beta * 100) / 100;
     });
   },
 };
