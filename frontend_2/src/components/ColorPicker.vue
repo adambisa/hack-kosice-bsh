@@ -45,6 +45,7 @@ export default {
   methods: {
     activate(e) {
       this.isActive = !this.isActive;
+      this.$emit('challenge-1-activate')
       // full_change();
     },
   },
