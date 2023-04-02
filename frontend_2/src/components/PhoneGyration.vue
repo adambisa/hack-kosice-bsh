@@ -51,10 +51,16 @@ export default {
     },
   },
   mounted() {
-    window.addEventListener("deviceorientation", (e) => {
-      document.querySelector(".descofNum").innerHTML = "dement";
-      this.rotation = Math.round(e.beta * 100) / 100;
-    });
+    DeviceOrientationEvent.requestPermission()
+      .then((response) => {
+        if (response == "granted") {
+          window.addEventListener("deviceorientation", (e) => {
+            document.querySelector(".descofNum").innerHTML = "dement";
+            this.rotation = Math.round(e.beta * 100) / 100;
+          });
+        }
+      })
+      .catch(console.error);
   },
 };
 </script>
