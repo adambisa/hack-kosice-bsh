@@ -5,21 +5,26 @@
  */
 
 // Components
-import App from './App.vue'
+import App from "./App.vue";
 
 // Composables
-import { createApp } from 'vue'
+import { createApp } from "vue";
 
 // Plugins
-import { registerPlugins } from '@/plugins'
+import { registerPlugins } from "@/plugins";
 
-const app = createApp(App)
+const app = createApp(App);
 
-registerPlugins(app)
+registerPlugins(app);
 
-app.mount('#app')
+app.mount("#app");
 
-addEventListener('deviceorientation', (e) => {
-    const value = document.querySelector('.phone-gyro-card').getAttribute('activity') == "true" ? 1 : 0;
-    document.querySelector('.gyrationperc').innerHTML = Math.round(e.beta * 100) / 100 * value;
+addEventListener("deviceorientation", (e) => {
+  const value =
+    document.querySelector(".phone-gyro-card").getAttribute("activity") ==
+    "true"
+      ? 1
+      : 0;
+  document.querySelector(".gyrationperc").innerHTML =
+    Math.min(Math.max(Math.round(e.beta * 100) / 100, 0), 100) * value;
 });

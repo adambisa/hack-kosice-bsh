@@ -42,14 +42,14 @@ export default {
       isActive: false,
     };
   },
-  
+
   methods: {
     changeState() {
-      console.log('dement')
+      console.log("dement");
       this.isActive = !this.isActive;
       this.$emit("challenge-6-state", this.isActive);
       // full_change();
-      
+
       document.querySelector(".gyrationperc").style.color = "white";
     },
   },
