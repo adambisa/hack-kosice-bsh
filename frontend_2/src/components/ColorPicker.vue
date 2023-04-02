@@ -21,11 +21,10 @@
 
     <v-card-actions>
       <v-btn
-        @click="activate()"
+        @click="changeState()"
         variant="flat"
-        color="green-accent-3"
+        :color="isActive ? 'black' : 'green-accent-3'"
         size="large"
-        class="button"
         >{{ isActive ? "Deactivate!" : "Activate!" }}</v-btn
       >
     </v-card-actions>
@@ -43,9 +42,9 @@ export default {
     };
   },
   methods: {
-    activate(e) {
+    changeState() {
       this.isActive = !this.isActive;
-      this.$emit('challenge-1-activate')
+      this.$emit("challenge-1-state", this.isActive);
       // full_change();
     },
   },
