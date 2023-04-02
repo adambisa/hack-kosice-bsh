@@ -1,6 +1,6 @@
 <template>
   <v-card
-    class="mx-auto rounded-lg mt-16"
+    class="mx-auto rounded-lg mt-10"
     max-width="340"
     theme="dark"
     color="grey-darken-4"
@@ -25,12 +25,14 @@
         variant="flat"
         color="green-accent-3"
         size="large"
-        >Animate!</v-btn
+        >Activate!</v-btn
       >
     </v-card-actions>
   </v-card>
 </template>
 <script>
+import { full_change } from "../../../backend/full_change";
+
 export default {
   name: "ColorPicker",
   data() {
@@ -40,7 +42,7 @@ export default {
   },
   methods: {
     logColor() {
-      console.log([this.color.r, this.color.g, this.color.b, this.color.a]);
+      full_change();
     },
   },
 };
