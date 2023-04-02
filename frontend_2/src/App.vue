@@ -4,15 +4,22 @@
       <Header @slide-change="handleChange">{{ pageTitle }}</Header>
       <v-container v-if="pageTitle === 'Challenges'" class="mx-auto">
         <v-row>
-          <v-col v-for="n in 2" cols="12">
+          <v-col>
             <ColorPicker
               @challenge-1-state="logChallenge1ToConsole"
             ></ColorPicker>
           </v-col>
+        </v-row>
+        <v-row>
           <v-col>
             <PhoneGyration
               @challenge-6-state="logChallenge6ToConsole"
             ></PhoneGyration>
+          </v-col>
+        </v-row>
+        <v-row>
+          <v-col>
+            <KillSwitch></KillSwitch>
           </v-col>
         </v-row>
       </v-container>
@@ -28,6 +35,7 @@ import ColorPicker from "@/components/ColorPicker.vue";
 import Header from "./components/Header.vue";
 import pageLog from "./components/pageLog.vue";
 import PhoneGyration from "./components/PhoneGyration.vue";
+import KillSwitch from "./components/KillSwitch.vue";
 </script>
 
 <script>
@@ -49,7 +57,7 @@ export default {
       let date = new Date();
 
       this.logs.unshift({
-        timeOf: date.toString().slice(0, -27),
+        timeOf: date.toString().slice(0, date.toString().lastIndexOf("0") + 1),
         action: `Challenge 1 ${e ? "Activated" : "Deactivated"}`,
       });
     },
@@ -58,7 +66,7 @@ export default {
       let date = new Date();
 
       this.logs.unshift({
-        timeOf: date.toString().slice(0, -27),
+        timeOf: date.toString().slice(0, date.toString().lastIndexOf("0") + 1),
         action: `Challenge 6 ${e ? "Activated" : "Deactivated"}`,
       });
     },

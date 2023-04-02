@@ -1,6 +1,6 @@
 <template>
   <v-card
-    class="mx-auto rounded-lg mt-10"
+    class="mx-auto rounded-lg mt-4"
     max-width="340"
     theme="dark"
     :color="isActive ? 'green-accent-3' : 'grey-darken-4'"
@@ -16,6 +16,7 @@
         color="#292929"
         elevation="0"
         v-model="color"
+        disabled="true"
       ></v-color-picker>
     </v-card-text>
 
@@ -37,7 +38,7 @@ export default {
   name: "ColorPicker",
   data() {
     return {
-      color: { r: 255, g: 0, b: 255, a: 1 },
+      color: { r: 255, g: 0, b: 0, a: 1 },
       isActive: false,
     };
   },

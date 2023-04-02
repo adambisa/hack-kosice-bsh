@@ -1,6 +1,6 @@
 <template>
   <v-card
-    class="mx-auto rounded-lg mt-10 phone-gyro-card"
+    class="mx-auto rounded-lg mt-4 phone-gyro-card"
     max-width="340"
     theme="dark"
     :color="isActive ? 'green-accent-3' : 'grey-darken-4'"
@@ -15,7 +15,7 @@
         If on mobile, after activating this challenge, you will be able to
         manipulate the LED matrix from your phone.
       </p>
-      <span class="descofNum mb-1">Phone's Gyration:</span>
+      <span class="descofNum mb-1">LEDs Brightness:</span>
       <span class="gyrationperc mr-1"> {{ rotation }} </span>
       <span class="per">%</span>
     </v-card-text>
