@@ -20,5 +20,18 @@
 <script>
 export default {
   name: "KillSwitch",
+  methods: {
+    kill() {
+      fetch("http://localhost:2000/kill", {
+        method: "POST",
+      })
+        .then((response) => {
+          console.log("Success:", response);
+        })
+        .catch((error) => {
+          console.log("Error:", error);
+        });
+    },
+  },
 };
 </script>

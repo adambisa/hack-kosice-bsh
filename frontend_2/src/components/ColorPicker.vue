@@ -47,6 +47,17 @@ export default {
       this.isActive = !this.isActive;
       this.$emit("challenge-1-state", this.isActive);
       // full_change();
+      if (this.isActive) {
+        fetch("http://localhost:2000/challenge1", {
+          method: "POST",
+        })
+          .then((response) => {
+            console.log("Success:", response);
+          })
+          .catch((error) => {
+            console.log("Error:", error);
+          });
+      }
     },
   },
 };
