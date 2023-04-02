@@ -30,7 +30,16 @@
     </v-card-actions>
   </v-card>
 </template>
-
+<script setup>
+import { onMounted } from "vue";
+let rotate = 0;
+onMounted(() => {
+  window.addEventListener("deviceorientation", (e) => {
+    document.querySelector(".descofNum").innerHTML = "dement";
+    rotate = Math.round(e.beta * 100) / 100;
+  });
+});
+</script>
 <script>
 // import { full_change } from "../../../backend/full_change";
 
@@ -39,7 +48,7 @@ export default {
   data() {
     return {
       isActive: false,
-      rotation: 0,
+      rotation: rotate,
     };
   },
   methods: {
@@ -49,18 +58,6 @@ export default {
       // full_change();
       document.querySelector(".gyrationperc").style.color = "white";
     },
-  },
-  mounted() {
-    DeviceOrientationEvent.requestPermission()
-      .then((response) => {
-        if (response == "granted") {
-          window.addEventListener("deviceorientation", (e) => {
-            document.querySelector(".descofNum").innerHTML = "dement";
-            this.rotation = Math.round(e.beta * 100) / 100;
-          });
-        }
-      })
-      .catch(console.error);
   },
 };
 </script>
